@@ -16,7 +16,7 @@ function ListGroup() {
              <li
               key={index} 
               className="list-group-item"
-              onClick={() => console.log({city})}
+              onClick={() => console.log(city)}
               >
                 {city}
               </li>)}
