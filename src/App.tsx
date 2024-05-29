@@ -10,7 +10,21 @@ function App(){
     'Lagos',
   ]
 
-  return <div><ListGroup items={cities} heading='Cities' /></div>
+  const countries = [
+    'Ghana',
+    'South Africa',
+    'Tanzania',
+    'Kenya',
+    'Libya',
+    'Nigeria',
+  ]
+
+  return (
+    <div>
+        <ListGroup items={countries} heading='Countries' />
+        <ListGroup items={cities} heading='Cities' />
+    </div>
+  ) 
 }
 
 export default App
