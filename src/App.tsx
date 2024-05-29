@@ -19,10 +19,15 @@ function App(){
     'Nigeria',
   ]
 
+  const handleSelectItem = (item:string) =>{
+    console.log(item);
+    
+  }
+
   return (
     <div>
-        <ListGroup items={countries} heading='Countries' />
-        <ListGroup items={cities} heading='Cities' />
+        <ListGroup items={countries} heading='Countries'onSelectItem={handleSelectItem}/>
+        <ListGroup items={cities} heading='Cities'onSelectItem={handleSelectItem}/>
     </div>
   ) 
 }
