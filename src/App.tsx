@@ -4,7 +4,7 @@ function App(){
   return (
     <div>
       <Alert>
-        Hey there world
+        Hey there <h1>world</h1> 
       </Alert>
     </div>
   ) 
