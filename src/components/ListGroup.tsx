@@ -12,8 +12,14 @@ function ListGroup() {
       <>
         <h1>African Cities</h1>
         <ul className="list-group">
-          {cities.map((city) => <li className="list-group-item">{city}</li>)}
-          
+          {cities.map((city, index) =>
+             <li
+              key={index} 
+              className="list-group-item"
+              onClick={() => console.log({city})}
+              >
+                {city}
+              </li>)}
         </ul>
       </>
     ) 
