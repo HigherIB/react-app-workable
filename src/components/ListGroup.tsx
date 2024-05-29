@@ -1,20 +1,18 @@
 import { useState } from "react";
 
-function ListGroup() {
-  const cities = [
-    'Accra',
-    'Pretoria',
-    'Dodoma',
-    'Mombasa',
-    'Tripoli',
-    'Lagos',
-  ]
+interface Props{
+  cities: string[];
+  heading: string;
+}
 
-  let [selectedIndex, setSelectedIndex] = useState(-1);
+function ListGroup({ cities, heading }: Props) {
+ 
+
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
     return (
       <>
-        <h1>African Cities</h1>
+        <h1>{heading}</h1>
         <ul className="list-group">
           {cities.map((city, index) =>
              <li
