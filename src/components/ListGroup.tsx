@@ -11,7 +11,7 @@ function ListGroup() {
     return (
       <>
         <h1>African Cities</h1>
-        <ul className="list-group">
+        <ul className="list-group --bs-secondary-bg">
           {cities.map((city, index) =>
              <li
               key={index} 
