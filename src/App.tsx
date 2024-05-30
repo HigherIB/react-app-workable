@@ -18,7 +18,7 @@ function App(){
     }
   })
 
-  const [maxChar, setMaxChar] = useState(10);
+  const [maxChar, setMaxChar] = useState(100);
   const [expand, setExpand] = useState(false);
 
   const handleClick = () => {
