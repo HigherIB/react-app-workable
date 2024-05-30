@@ -3,12 +3,15 @@ import { BsFillCalendarFill } from "react-icons/bs";
 
 import Alert from "./components/Alert";
 import Button from "./components/Button";
+import Like from "./components/Like";
+
 
 function App(){
   const [alertVisible, setAlertVisibility] = useState(false)
   return (
     <div>
-      <BsFillCalendarFill color="blue" size="40" />
+      <Like onClick={() => console.log("clicked")
+      } />
       {alertVisible && 
       <Alert onClose={() => setAlertVisibility(false)}>
         check this alert
