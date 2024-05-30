@@ -7,13 +7,14 @@ const Form = () => {
                 <label htmlFor="name" className="form-label">Name</label>
                 <input id="name" type="text" className="form-control" />
             </div>
+            <div className="mb-3">
+                <label htmlFor="age" className="form-label">Name</label>
+                <input id="age" type="number" className="form-control" />
+            </div>
+            <button className="btn btn-primary">Submit</button>
         </form>
     )
 }
 
-{/* <div className="mb-3">
-<lable htmlFor="name" className="form-lable"></lable>
-<input id="name" type="text" className="form-control" />
-</div> */}
 
 export default Form
