@@ -4,7 +4,7 @@ const Form = () => {
     return (
         <form>
             <div>
-                <label htmlFor="name"></label>
+                <label htmlFor="name">Name</label>
                 <input id="name" type="text" />
             </div>
         </form>
