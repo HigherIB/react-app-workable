@@ -7,7 +7,7 @@ interface Props {
 const ExpandableText = ({ children, onClick, charCount} : Props) => {
     return <div>
         {children.slice(0, charCount)}
-        <button type="button" onClick={onClick}>{}</button>
+        <button type="button" onClick={onClick}>{charCount < 100 ? 'More' : 'Less'}</button>
     </div>
 }
 

@@ -19,12 +19,16 @@ function App(){
   })
 
   const [maxChar, setMaxChar] = useState(10);
+  const [expand, setExpand] = useState(false);
+
   const handleClick = () => {
     setGame({...game, player: { name: "bob"}})
   }
 
   const handleExpand = () => {
-    if(maxChar) setMaxChar(100);
+    if(expand) setMaxChar(10);
+    setMaxChar(1000);
+    setExpand(!expand);
   }
   return (
     <div>
