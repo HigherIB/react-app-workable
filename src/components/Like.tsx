@@ -11,7 +11,7 @@ const Like = ({ onClick } : Props) => {
 
     
     const toggle = () => {
-        setBookmark(!status);
+        setBookmark(!bookmark);
         onClick()
     }
 
