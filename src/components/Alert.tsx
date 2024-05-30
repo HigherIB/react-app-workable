@@ -5,8 +5,9 @@ interface Props {
 }
 const Alert = ({ children }: Props) => {
     return (
-        <div className="alert alert-primary">
+        <div className="alert alert-primary alert-dismissible fade show">
             {children}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     )
 }
