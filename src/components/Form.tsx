@@ -5,7 +5,7 @@ const Form = () => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        if (nameRef !== null)
+        if (nameRef.current !== null)
             console.log(nameRef.current.value);
     }
 
