@@ -5,8 +5,6 @@ interface Props {
     onClose: () => void;
 }
 const Alert = ({ children, onClose }: Props) => {
-    const [alertVisible, setAlertVisibility] = useState(false);
-
     return (
         <div className="alert alert-primary alert-dismissible fade show">
             {children}
