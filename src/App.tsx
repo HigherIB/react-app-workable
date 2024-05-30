@@ -42,11 +42,11 @@ function App(){
       </Alert>}
       <Button onClick={() => setAlertVisibility(true)}>SHOW MORE!</Button>
       
-      <ExpandableText onClick={handleExpand} charCount={maxChar}>
+      <ExpandableText onClick={handleExpand} maxChar={maxChar}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum quisquam quidem officia eos maiores sunt, ex pariatur tempore autem rerum quos perspiciatis obcaecati optio animi nemo et eum id? Autem!
       </ExpandableText>
     </div>
   ) 
 }
 
-export default App
+export default App 

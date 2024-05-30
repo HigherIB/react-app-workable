@@ -1,14 +1,13 @@
 interface Props {
     children: string;
     onClick: () => void;
-    charCount: number;
+    maxChar?: number;
 }
 
-const ExpandableText = ({ children, onClick, charCount} : Props) => {
-    return <div>
-        {children.slice(0, charCount)}
-        <button type="button" onClick={onClick}>{charCount < 100 ? 'More' : 'Less'}</button>
-    </div>
+const ExpandableText = ({ children, onClick, maxChar = 10} : Props) => {
+        if (children.length <= maxChar) return <p>{children}</p>;
+         const text = children.substring(0, maxChar);
+         return <p>{text}...</p>
 }
 
 export default ExpandableText
