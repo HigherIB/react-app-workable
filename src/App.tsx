@@ -11,7 +11,7 @@ function App(){
         check this alert
       </Alert>}
       
-      <Button />
+      <Button onClick={() => setAlertVisibility(true)} />
     </div>
   ) 
 }
