@@ -9,7 +9,7 @@ interface Props {
 const ExpandableText = ({ children, onClick, maxChar = 100} : Props) => {
     const [isExpandable, setIsExpandable] = useState(false)
         if (children.length <= maxChar) return <p>{children}</p>;
-         const text = children.substring(0, maxChar);
+         const text = isExpandable ? children : children.substring(0, maxChar);
          return <p>{text}... <button type="button" onClick={() => setIsExpandable(!isExpandable)}> {isExpandable ? 'Less' : 'More'} </button> </p>
 }
 
