@@ -13,14 +13,14 @@ function App(){
     {id: 5, description: 'zzz', amount: 100, category: 'Groceries'},
   ])
 
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const visibleCategory = selectedCategory ? expenses.filter(expense => expense.category === selectedCategory) : expenses;
 
   return (
     <div>
       <ExpenseForm />
       <ExpenseSummary onSelectCategory={ category => setSelectedCategory(category)} />
-      <ExpenseList expenses={selectedCategory} onDelete={(id) => setExpenses(expenses.filter((expense) => expense.id !== id))}  />
+      <ExpenseList expenses={visibleCategory} onDelete={(id) => setExpenses(expenses.filter((expense) => expense.id !== id))}  />
     </div>
   ) 
 }
