@@ -5,8 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
     description: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
-    amount: z.number({ invalid_type_error: 'Amount is required' }).min(1),
-    category: z.string({ invalid_type_error: 'Category is required' }).min(3)
+    amount: z.number({ invalid_type_error: 'Amount is required' }).min(1, {message: 'Amount is required'}),
+    category: z.string({ invalid_type_error: 'Category is required' }).min(3, {message: 'Category is required'})
 })
 
 type FormData = z.infer<typeof schema>
@@ -32,7 +32,7 @@ const ExpenseForm = () => {
          <div className="mb-3">
              <label htmlFor="amount" className="form-label">Amount</label>
               <input
-                    { ...register('amount') }
+                    { ...register('amount', { valueAsNumber:  }) }
                     id="amount"
                     type="number"
                     className="form-control"
