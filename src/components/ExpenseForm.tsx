@@ -32,7 +32,7 @@ const ExpenseForm = () => {
          <div className="mb-3">
              <label htmlFor="amount" className="form-label">Amount</label>
               <input
-                    { ...register('amount', { valueAsNumber:  }) }
+                    { ...register('amount') }
                     id="amount"
                     type="number"
                     className="form-control"
