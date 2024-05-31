@@ -1,3 +1,15 @@
+
+import { FieldValues, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+    descrption: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
+    amount: z.number({ invalid_type_error: 'Amount is required' }).min(1),
+    category: z.string().min(3)
+})
+
+
 const ExpenseForm = () => {
     return (
         <form>
@@ -14,12 +26,16 @@ const ExpenseForm = () => {
                 className="form-control"
             />
             <label htmlFor="category" className="form-label">Category</label>
-            <input 
+            <select 
+                name="categories" 
                 id="category"
-                type="text"
                 className="form-control"
-            />
-            <button type="submit" className="btn btn-primary mt-5">Submit</button>
+            >
+                <option value="groceries">Groceries</option>
+                <option value="utilities">Utilities</option>
+                <option value="entertainment">Entertainment</option>
+            </select>
+            <button type="submit" className="btn btn-primary mt-3">Submit</button>
         </form>
     )
 }
