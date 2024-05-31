@@ -19,7 +19,7 @@ const ExpenseForm = () => {
                 type="text"
                 className="form-control"
             />
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary mt-5">Submit</button>
         </form>
     )
 }
