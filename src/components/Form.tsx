@@ -1,26 +1,33 @@
 import React, { FormEvent,useRef, useState } from "react"
+import { FieldValues, useForm } from "react-hook-form";
+
 
 const Form = () => {
-const [person, setPerson] = useState({
-    name: '',
-    age: 0,
-})
-
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log(person);
-        
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data : FieldValues) => console.log(data);
+    
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3">
                 <label htmlFor="name" className="form-label">Name</label>
-                <input onChange={(e) => setPerson({ ...person, name: e.target.value})} id="name" type="text" className="form-control" />
+                <input 
+                    { ...register('name', {required: true, maxLength: 3}) }
+                     id="name" 
+                     type="text" 
+                     className="form-control"
+                 />
+                 { errors.name?.type === 'required' && <p className="text-danger">The name field is required.</p> }
+                 { errors.name?.type === 'minLength' && <p className="text-danger">The name must be atleast three characters.</p> }
             </div>
             <div className="mb-3">
                 <label htmlFor="age" className="form-label">Name</label>
-                <input onChange={(e) => setPerson({ ...person, age: +e.target.value})} id="age" type="number" className="form-control" />
+                <input 
+                    { ...register('age', {required: true}) } 
+                    id="age" 
+                    type="number" 
+                    className="form-control" 
+                />
             </div>
             <button className="btn btn-primary" type="submit">Submit</button>
         </form>
