@@ -29,7 +29,7 @@ const ExpenseForm = () => {
             <select 
                 name="categories" 
                 id="category"
-                className="form-control"
+                className="form-select" 
             >
                 <option value="groceries">Groceries</option>
                 <option value="utilities">Utilities</option>
