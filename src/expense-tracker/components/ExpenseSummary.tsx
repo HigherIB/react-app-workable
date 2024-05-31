@@ -12,7 +12,7 @@ const ExpenseSummary = ({ onSelectCategory }: Props) => {
                     className="form-select"
                     onChange={(e) => onSelectCategory(e.target.value)}
                     >
-                    <option value="all categories">All categories</option>
+                    <option value="">All categories</option>
                     <option value="Groceries">Groceries</option>
                     <option value="Utilities">Utilities</option>
                     <option value="Entertainment">Entertainment</option>
