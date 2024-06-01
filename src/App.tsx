@@ -36,7 +36,7 @@ function App(){
 
   return (
     <div>
-      {isLoading && <div className="spinner-border">Loading...</div className=""> }
+      {isLoading && <div className="spinner-border"></div> }
       {error && <p className="text-danger">{error}</p> }
       <ul className="list-group">
         {users.map(user => <li key={user.id} className="list-group-item">{user.name}</li> )}
