@@ -19,7 +19,7 @@ function App(){
 
   return (
     <div>
-      <ExpenseForm onSubmit={data => console.log(data)} />
+      <ExpenseForm onSubmit={data => setExpenses([...expenses, {...data, id: expenses.length + 1}])} />
       <ExpenseSummary onSelectCategory={ category => setSelectedCategory(category)} />
       <ExpenseList expenses={visibleCategory} onDelete={(id) => setExpenses(expenses.filter((expense) => expense.id !== id))}  />
     </div>

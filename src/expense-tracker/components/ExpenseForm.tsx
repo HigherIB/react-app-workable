@@ -19,11 +19,13 @@ interface Props {
 }
 
 const ExpenseForm = ({ onSubmit }: Props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) })
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) })
     // const onSubmit = (data : FieldValues) => console.log(data);
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(data => {  onSubmit(data);
+            reset();
+        })}>
          <div className="mb-3">
              <label htmlFor="description" className="form-label">Description</label>
               <input
@@ -39,7 +41,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
          <div className="mb-3">
              <label htmlFor="amount" className="form-label">Amount</label>
               <input
-                    { ...register('amount') }
+                    { ...register('amount', { valueAsNumber: true }) }
                     id="amount"
                     type="number"
                     className="form-control"
