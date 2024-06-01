@@ -2,11 +2,12 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import categories  from "../categories";
 
 const schema = z.object({
     description: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
     amount: z.number({ invalid_type_error: 'Amount is required' }).min(3, {message: 'Amount is required'}),
-    category: z.string({ invalid_type_error: 'Category is required' }).min(3, {message: 'Category is required'})
+    category: z.enum(categories)
 })
 
 type FormData = z.infer<typeof schema>
@@ -49,9 +50,8 @@ const ExpenseForm = () => {
                     id="category"
                     className="form-select" 
                 >
-                    <option value="groceries">Groceries</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="entertainment">Entertainment</option>
+                    <option value=""></option>
+                    { categories.map(category => <option key={category} value={category}>{category}</option>) }
                 </select>
                 { errors.category && (
                     <p className="text-danger">{ errors.category.message }</p>

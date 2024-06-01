@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import categories from "./expense-tracker/categories"; 
 import ExpenseList from "./expense-tracker/components/ExpenseList"
 import ExpenseForm from "./expense-tracker/components/ExpenseForm"
 import ExpenseSummary from "./expense-tracker/components/ExpenseSummary"
