@@ -18,7 +18,7 @@ function App(){
 
   return (
     <div>
-      <select name="categories" id="categories" onChange={(e) => setCategory(e.target.value)}>
+      <select name="categories" id="categories" className="form-select" onChange={(e) => setCategory(e.target.value)}>
         <option value=""></option>
         <option value="Clothing">Clothing</option>
         <option value="Household">HouseHold</option>
