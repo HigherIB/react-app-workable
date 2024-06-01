@@ -9,7 +9,7 @@ import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES } from "react"
 const schema = z.object({
     description: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
     amount: z.number({ invalid_type_error: 'Amount is required' }).min(3, {message: 'Amount is required'}),
-    category: z.enum(categories, { errorMap: () => ({ message: 'Category is required' }) })
+    category: z.enum(categories, { errorMap: () => ({ message: 'Category is required' }) }),
 })
 
 type FormData = z.infer<typeof schema>
