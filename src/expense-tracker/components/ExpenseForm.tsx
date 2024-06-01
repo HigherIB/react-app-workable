@@ -3,11 +3,12 @@ import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import categories  from "../categories";
+import errorMap from "zod/lib/locales/en";
 
 const schema = z.object({
     description: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
     amount: z.number({ invalid_type_error: 'Amount is required' }).min(3, {message: 'Amount is required'}),
-    category: z.enum(categories)
+    category: z.enum(categories, { errorMap: () => ({ message: 'Category is required' }) })
 })
 
 type FormData = z.infer<typeof schema>
