@@ -39,7 +39,7 @@ function App(){
       {isLoading && <div className="spinner-border"></div> }
       {error && <p className="text-danger">{error}</p> }
       <ul className="list-group">
-        {users.map(user => <li key={user.id} className="list-group-item">{user.name}</li> )}
+        {users.map(user => <li key={user.id} className="list-group-item d-flex justify-content-between">{user.name} <button className="btn btn-outline-danger">Delete</button> </li> )}
       </ul>
     </div>
   ) 
