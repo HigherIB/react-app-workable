@@ -8,7 +8,7 @@ interface User {
 
 
 
-function App({id, name}: User){
+function App(){
   const [users, setUsers] = useState<User[]>([])
 
   // After render
