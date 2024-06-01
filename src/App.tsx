@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
+import ProductList from "./components/ProductList";
 
 
 
 function App(){
   const ref = useRef<HTMLInputElement>(null);
-
+  const [category, setCategory] = useState('')
 
   // After render
   useEffect(() => {
@@ -14,10 +15,16 @@ function App(){
   useEffect(() => {
     document.title = 'My App';
   })
-  
+
   return (
     <div>
-      <input ref={ref} type="text" className="formControl" />
+      <select name="categories" id="categories" onChange={(e) => setCategory(e.target.value)}>
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">HouseHold</option>
+      </select>
+      <ProductList category={category} />
+      <input ref={ref} type="text" className="form-control" />
     </div>
   ) 
 }
