@@ -58,7 +58,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
                     id="category"
                     className="form-select" 
                 >
-                    <option value=""></option>
+                    {/* <option value=""></option> */}
                     { categories.map(category => <option key={category} value={category}>{category}</option>) }
                 </select>
                 { errors.category && (
