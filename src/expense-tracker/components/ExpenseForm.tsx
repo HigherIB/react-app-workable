@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import categories  from "../categories";
 import errorMap from "zod/lib/locales/en";
+import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES } from "react";
 
 const schema = z.object({
     description: z.string().min(3, {message: 'Description must be atleast 3 characters'}),
@@ -13,9 +14,13 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-const ExpenseForm = () => {
+interface Props {
+    onSubmit: (data: FormData) => void;
+}
+
+const ExpenseForm = ({ onSubmit }: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) })
-    const onSubmit = (data : FieldValues) => console.log(data);
+    // const onSubmit = (data : FieldValues) => console.log(data);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
