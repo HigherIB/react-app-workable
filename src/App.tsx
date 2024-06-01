@@ -35,9 +35,9 @@ function App(){
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
 
-    setUsers(users.filter((user) => user !== user));
+    setUsers(users.filter((use) => use.id !== user.id));
 
-    axios.delete("https://jsonplaceholder.typicode.com/users" + user.id)
+    axios.delete("https://jsonplaceholder.typicode.com/users/" + user.id)
       .catch((err) => {
         setError(err.message);
         setUsers(originalUsers);
