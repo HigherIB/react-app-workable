@@ -65,7 +65,7 @@ function App(){
       <ul className="list-group">
         {users.map(user => <li key={user.id} className="list-group-item d-flex justify-content-between">{user.name}
          <div>
-           <button className="btn btn-outline-secondary mx-1" onClick={() => updateUser(user)}></button>
+           <button className="btn btn-outline-secondary mx-1" onClick={() => updateUser(user)}>Update</button>
            <button className="btn btn-outline-danger" onClick={() => deleteUser(user)}>Delete</button> 
          </div>
          </li> )}
