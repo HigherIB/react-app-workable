@@ -12,7 +12,7 @@ function App(){
   useEffect(() => {
     setLoading(true);
 
-    const { request, cancel } = userService.getAllUsers();
+    const { request, cancel } = userService.getAll<User>();
       request
         .then(res => {
           setUsers(res.data);
@@ -32,7 +32,7 @@ function App(){
     const newUser = { id: 0, name: 'Malik' };
     setUsers([newUser, ...users]);
 
-    userService.createUser(newUser)
+    userService.create(newUser)
       .then(({ data: savedUSer }) => setUsers([savedUSer, ...users]))
       .catch((err) => {
         setError(err.message)
@@ -45,7 +45,7 @@ function App(){
 
     setUsers(users.filter((use) => use.id !== user.id));
 
-    userService.deleteUser(user.id)
+    userService.delete(user.id)
       .catch((err) => {
         setError(err.message);
         setUsers(originalUsers);
@@ -58,7 +58,7 @@ function App(){
     const updatedUser = { ...user, name: user.name.toUpperCase() }
     setUsers(users.map(u => u.id === user.id ? updatedUser : u));
 
-    userService.updateUser(updatedUser)
+    userService.update(updatedUser)
     .catch( err => {
         setError(err.message);
         setUsers(originalUsers);
@@ -70,7 +70,7 @@ function App(){
     <div>
       {isLoading && <div className="spinner-border"></div> }
       {error && <p className="text-danger">{error}</p> }
-      <button type="button" className="btn btn-primary" onClick={() => addUser}>Add New User</button>
+      <button type="button" className="btn btn-primary my-2" onClick={() => addUser}>Add New User</button>
       <ul className="list-group">
         {users.map(user => <li key={user.id} className="list-group-item d-flex justify-content-between">{user.name}
          <div>
